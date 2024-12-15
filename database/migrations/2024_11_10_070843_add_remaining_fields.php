@@ -11,8 +11,7 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('bills', function (Blueprint $table) {
-            $table->id('sr_no'); // Sr No.
+        Schema::table('bills', function (Blueprint $table) {
             $table->string('worker_name')->nullable(); // Worker Name
             $table->string('type_of_worker')->nullable(); // Type of Worker
             $table->string('total_work_day')->nullable(); // Total Work Day
@@ -23,7 +22,6 @@ return new class extends Migration
             $table->string('total_present_amt')->nullable(); // Total Present Amt
             $table->string('ot_amt')->nullable(); // OT Amt
             $table->string('grand_total')->nullable(); // Grand Total
-            $table->timestamps();
         });
     }
 
@@ -32,6 +30,19 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('bills');
+        Schema::table('bills', function (Blueprint $table) {
+            $table->dropColumn('worker_name');
+            $table->dropColumn('type_of_worker');
+            $table->dropColumn('total_work_day');
+            $table->dropColumn('sunday_holiday');
+            $table->dropColumn('ot');
+            $table->dropColumn('total_days');
+            $table->dropColumn('month_rate');
+            $table->dropColumn('total_present_amt');
+            $table->dropColumn('ot_amt');
+            $table->dropColumn('grand_total');
+
+
+        });
     }
 };
