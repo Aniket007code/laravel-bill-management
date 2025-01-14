@@ -36,7 +36,7 @@
                             <div class="alert alert-success">{{ session('success') }}</div>
                             @endif
 
-                            <h3 class="card-title pt-2">Invoice Data</h3>
+                            <h3 class="card-title pt-2">Invoice Data test chnages</h3>
                             <div class="card-header" style="display: flex;justify-content:space-between;align-items:center">
 
                                 <!-- <button type="button" href="/create" class="btn btn-success">Add Invoice</button> -->
